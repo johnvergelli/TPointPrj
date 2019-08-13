@@ -7,7 +7,7 @@ def main():
     for datum in testdata1:
         templist = datum.split(",")
         timeline.append(TPoint(*templist))
-
+    timeline = timeline.sort(TPoint.__lt__)
     for tl in timeline:
         print(tl)
 
