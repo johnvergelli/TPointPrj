@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class TPoint:
-    def __init__(self, year, month, day, narrative):
+    def __init__(self, year, month, day, narrative, keywords_string=""):
         if(type(year) != int):
             year = int(year)
         if(type(month) != int):
@@ -11,6 +11,7 @@ class TPoint:
             day = int(day)
         self.point = datetime(year, month, day)
         self.narrative = narrative
+        self.keywords_string = keywords_string
 
     @property
     def year(self):
@@ -36,6 +37,16 @@ class TPoint:
     def day(self, new_day):
         self.point = self.point.replace(day=new_day)
 
+    @property
+    def keywords(self):
+        return str(self.keywords_string)
+
+    @keywords.setter
+    def keywords(self, kw):
+        if(self.keywords_string != ""):
+            self.keywords_string += ", "
+        self.keywords_string += kw
+
     def __str__(self):
         return(f"{self.point.date()} | {self.narrative}")
 
@@ -56,6 +67,18 @@ class TPoint:
                     return False
                 else:
                     return True
+
+    def to_dict(self):
+        d = {
+            "__class__": self.__class__.__name__,
+            "__module__": self.__module__,
+            "year": self.year,
+            "month": self.month,
+            "day": self.day,
+            "narrative": self.narrative,
+            "keywords_string": self.keywords_string
+        }
+        return d
 
     def as_csv_str(self):
         return(f"{str(self.point.year)},{str(self.point.month)},{str(self.point.day)},{self.narrative}")

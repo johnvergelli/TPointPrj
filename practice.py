@@ -1,3 +1,7 @@
+import json
+from expert import *
+
+
 def convert_to_dict(obj):
     # add obj metadata to the dictionary:
     obj_dict = {
@@ -20,13 +24,19 @@ def convert_to_obj(d):
     return obj
 
 
-testdata1 = [
-    "1882,1,30,Franklin Roosevelt born",
-    "1880,12,31,George C. Marshall born",
-    "1889,4,20,Adolf Hitler born",
-    "1905,3,19,Albert Speer born",
-    "1878,12,18,Josef Stalin born",
-    "1882,10,2,Boris Shaposhnikov born",
-    "1874,11,30,Winston Churchill born",
-    "1892,4,13,Arthur ('Bomber') Harris born",
-]
+e1 = Expert("John", "Vergelli", "7-4416", ["Biometrics", "RT", "Secure Flight", "Vetting"])
+print(e1)
+
+with open("data.json", "w") as out_file:
+    json.dump(e1, out_file, default=convert_to_dict, indent=4, sort_keys=True)
+
+with open("data.json", "r") as in_file:
+    e2 = json.load(in_file, object_hook=convert_to_obj)
+print(e2)
+
+print("Exiting.")
+
+
+# print(data_str)
+# with open("data.json", "w") as out_file:
+#    out_file.write(data_str)
