@@ -2,6 +2,12 @@ from datetime import datetime
 
 
 class TPoint:
+    """
+    Instances of this class represent the facts about a particular event.
+    This class is designed work with class TLine, which represents a timeline
+    comprised of such events.
+    """
+
     def __init__(self, year, month, day, narrative, keywords_string=""):
         if(type(year) != int):
             year = int(year)

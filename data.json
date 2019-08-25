@@ -25,5 +25,23 @@
         "day": 20,
         "narrative": "Failed assassination attempt on Hitler",
         "keywords_string": "Europe"
+    },
+    {
+        "__class__": "TPoint",
+        "__module__": "TPoint",
+        "year": 1890,
+        "month": 3,
+        "day": 11,
+        "narrative": "Vannevar Bush born in Everett, MA.",
+        "keywords_string": "Bush"
+    },
+    {
+        "__class__": "TPoint",
+        "__module__": "TPoint",
+        "year": 1938,
+        "month": 12,
+        "day": 22,
+        "narrative": "Kathleen Ann Ryan Vergelli born in Philadelphia, PA.",
+        "keywords_string": "Family"
     }
 ]
